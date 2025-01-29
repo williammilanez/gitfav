@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --ff-primary: 'Roboto', sans-serif;
+    --text-color: #E1E1E6;
+    --bg-color: #000;
+
+    --hue: 194;
+    --primary-color: hsl(var(--hue), 72%, 13%);
+
+    --input-color: #7C7C8A;
+
+    --button: hsl(var(--hue), 91%, 25%);
+    --text-button: #FFF;
+    --bg-text-button: hsl(var(--hue), 65%, 7%);
+}
+
+body {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+body * {
+    font-family: var(--ff-primary);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden; /* não permite transbordar da caixa */
+    clip: rect(0, 0, 0, 0); /* retângulo criado */
+    white-space: nowrap; /* não permite quebra de linha */
+    border-width: 0;
+}
+
+#app {
+    max-width: 1120px;
+    margin: 0 auto; /* para alinhar ao centro */
+
+    padding: 2rem; /* preenchimento interno para a margin não grudar quando mexer na tela */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 11.5rem 0rem 8.7rem;
+    width: 100%;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.search input {
+    background-color: var(--bg-text-button);
+    color: var(--text-button);
+
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1.6rem;
+
+    width: 46.2rem;
+    height: 4.8rem;
+
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 100%;
+
+    margin-right: 0.8rem;
+}
+
+.search input::placeholder {
+    color: var(--input-color);
+}
+
+.search button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: var(--button);
+    color: var(--text-button);
+    
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1.2rem 3.2rem;
+
+    width: 17rem;
+    height: 4.8rem;
+    
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+
+    text-transform: uppercase;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.search button:hover {
+    background-color: var(--text-button);
+    color: var(--button);
+}
+
+
+
+
+/* continuar a formatação das tabelas para baixo
+arquivos trabalhados:
+- html - estrela sem favoritos
+- css - continuar das tabelas para baixo
+- js - falta conferir / corrigir
+- readme - falta corrigir
+*/
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* serve para juntar as colunas, tirando os espaçamentos */
+
+    box-shadow: 0 1rem 2rem -1rem white;
+}
+
+table * {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+table th {
+    background: var(--primary-color);
+    text-align: left;
+    font-weight: normal;
+    padding: 1.5rem;
+}
+
+/* pseudo-class */
+table th:first-child {
+    border-top-left-radius: 0.4rem;
+}
+
+table th:last-child {
+    border-top-right-radius: 0.4rem;
+}
+
+/* para deixar uma linha de cada cor */
+/* cor de linhas ímpares (even) */
+table tr:nth-child(even) {
+    background: #06181C;
+}
+
+/* cor de linhas pares (odd) */
+table tr:nth-child(odd) {
+    background: none;
+}
+
+table td {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+td.user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    white-space: nowrap; /* não permite quebra de linha */
+}
+
+/* configuração da imagem */
+td.user img {
+    width: 5rem;
+    height: 5rem;
+    
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+td.user a {
+    text-decoration: none;
+}
+
+td.user a p {
+    font-weight: bold;
+}
+
+td .remove {
+    background: none;
+    border: none;
+
+    color: red;
+
+    cursor: pointer;
+}
