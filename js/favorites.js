@@ -142,4 +142,14 @@ export class FavoritesView extends Favorites {
     removeAllTr() {
         this.tbody.querySelectorAll('tr').forEach((tr) => {tr.remove()})
     }
+
+    toggleEmptyMessage() {
+        const emptyMessageRow = this.root.querySelector('.empty-message');
+        
+        if (this.entries.length === 0) {
+            emptyMessageRow.classList.remove('hide');
+        } else {
+            emptyMessageRow.classList.add('hide');
+        }
+    }
 }

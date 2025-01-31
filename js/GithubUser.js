@@ -11,15 +11,5 @@ export class GithubUser {
             public_repos,
             followers
         }))
-
-    // forma estruturada
-        // return fetch(endpoint)
-        // .then(data => data.json())
-        // .then(data => ({
-        //     login: data.login,
-        //     name: data.name,
-        //     public_repos: data.public_repos,
-        //     followers: data.followers
-        // }))
     }
 }

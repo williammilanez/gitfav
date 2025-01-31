@@ -45,6 +45,7 @@ body * {
 
 #app {
     max-width: 1120px;
+
     margin: 0 auto; /* para alinhar ao centro */
 
     padding: 2rem; /* preenchimento interno para a margin não grudar quando mexer na tela */
@@ -118,45 +119,41 @@ header {
     color: var(--button);
 }
 
-
-
-
-/* continuar a formatação das tabelas para baixo
-arquivos trabalhados:
-- html - estrela sem favoritos
-- css - continuar das tabelas para baixo
-- js - falta conferir / corrigir
-- readme - falta corrigir
-*/
-
-
-
 table {
     width: 100%;
     border-collapse: collapse; /* serve para juntar as colunas, tirando os espaçamentos */
+    border-radius: 1.2rem;
 
-    box-shadow: 0 1rem 2rem -1rem white;
+    overflow: hidden;
+    
+    box-shadow: 0 1rem 1rem -1rem var(--primary-color);
 }
 
 table * {
-    font-size: 1.4rem;
     color: var(--text-color);
+
+    font-size: 2rem;
+    line-height: 2rem;
 }
 
 table th {
     background: var(--primary-color);
     text-align: left;
-    font-weight: normal;
-    padding: 1.5rem;
+    font-weight: 700;
+    padding: 1.6rem 2.4rem 1.6rem;
 }
 
 /* pseudo-class */
 table th:first-child {
-    border-top-left-radius: 0.4rem;
+    border-radius: 1.2rem 0 0 0;
 }
 
 table th:last-child {
-    border-top-right-radius: 0.4rem;
+    border-radius: 0 1.2rem 0 0;
+}
+
+tbody {
+    border: 2px solid var(--bg-even-row);
 }
 
 /* para deixar uma linha de cada cor */
@@ -171,22 +168,24 @@ table tr:nth-child(odd) {
 }
 
 table td {
-    padding: 1.5rem;
+    padding: 1.6rem 4rem;
     text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 td.user {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.6rem;
 
     white-space: nowrap; /* não permite quebra de linha */
 }
 
 /* configuração da imagem */
 td.user img {
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
     
     object-fit: cover;
     border-radius: 50%;
@@ -197,7 +196,11 @@ td.user a {
 }
 
 td.user a p {
-    font-weight: bold;
+    font-weight: 700;
+}
+
+td.user a span {
+    font-weight: 400;
 }
 
 td .remove {
@@ -207,4 +210,31 @@ td .remove {
     color: red;
 
     cursor: pointer;
+}
+
+.empty-message {
+    text-align: center;
+}
+
+.empty-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+}
+
+.empty-container img {
+    width: 150px;
+    opacity: 0.5;
+}
+
+.empty-container p {
+    font-size: 1.8rem;
+    color: var(--input-color);
+    margin-top: 1rem;
+}
+
+.hide {
+    display: none;
 }
