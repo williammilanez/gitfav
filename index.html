@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitFav</title>
+
+    <link rel="shortcut icon" href="./assets/star.svg" type="image/x-svg">
     
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -33,27 +35,27 @@
             </div>
         </header>
         
-        <table>
-            <thead>
-                <tr>
-                    <th>Usuário</th>
-                    <th>Repositories</th>
-                    <th>Followers</th>
-                    <th>Ação</th>
-                </tr>
-            </thead>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Repositories</th>
+                        <th>Followers</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr class="empty-message hide">
-                    <td colspan="4">
-                        <div class="empty-container">
-                            <img src="./assets/Estrela.svg" alt="Nenhum favorito ainda">
-                            <p>Nenhum favorito ainda</p>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                <tbody></tbody>
+            </table>
+
+            <div class="empty hide">
+                <div class="empty-content">
+                    <img src="./assets/Estrela.svg" alt="Nenhum favorito ainda">
+                    <p>Nenhum favorito ainda</p>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

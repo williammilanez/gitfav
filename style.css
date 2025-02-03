@@ -25,9 +25,6 @@ body {
     font-size: 1.6rem;
     color: var(--text-color);
     background-color: var(--bg-color);
-}
-
-body * {
     font-family: var(--ff-primary);
 }
 
@@ -45,12 +42,11 @@ body * {
 
 #app {
     max-width: 1120px;
-
     margin: 0 auto; /* para alinhar ao centro */
-
     padding: 2rem; /* preenchimento interno para a margin não grudar quando mexer na tela */
 }
 
+/* header */
 header {
     display: flex;
     align-items: center;
@@ -60,6 +56,7 @@ header {
     width: 100%;
 }
 
+/* search */
 .search {
     display: flex;
     align-items: center;
@@ -111,7 +108,7 @@ header {
     text-transform: uppercase;
     cursor: pointer;
 
-    transition: 0.3s ease;
+    transition: 0.5s ease;
 }
 
 .search button:hover {
@@ -119,16 +116,7 @@ header {
     color: var(--button);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse; /* serve para juntar as colunas, tirando os espaçamentos */
-    border-radius: 1.2rem;
-
-    overflow: hidden;
-    
-    box-shadow: 0 1rem 1rem -1rem var(--primary-color);
-}
-
+/* table */
 table * {
     color: var(--text-color);
 
@@ -136,27 +124,70 @@ table * {
     line-height: 2rem;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse; /* serve para juntar as colunas, tirando os espaçamentos */
+
+    position: relative;
+
+    min-height: 10rem;
+}
+
+thead {
+    background: var(--primary-color);
+    border: 1px solid #4A808C;
+}
+
+tbody {
+    display: block;
+    max-height: calc(6 * 4.8rem); /* altura limitada de 6 linhas */
+    overflow-y: auto;
+    border: 1px solid #4A808C;
+
+    position: relative;
+}
+
+thead tr,
+tbody tr {
+    border: 1px solid #4A808C;
+}
+
+thead tr:first-child th:first-child {
+    border-top-left-radius: 1.2rem;
+}
+thead tr:first-child th:last-child {
+    border-top-right-radius: 1.2rem;
+}
+tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 1.2rem;
+}
+tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 1.2rem;
+}
+
+/* estrutura da tabela */
+table thead,
+table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
 table th {
     background: var(--primary-color);
     text-align: left;
     font-weight: 700;
-    padding: 1.6rem 2.4rem 1.6rem;
+    padding: 1.6rem 2.4rem;
 }
 
-/* pseudo-class */
-table th:first-child {
-    border-radius: 1.2rem 0 0 0;
+table td {
+    padding: 1.6rem 4rem;
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-table th:last-child {
-    border-radius: 0 1.2rem 0 0;
-}
-
-tbody {
-    border: 2px solid var(--bg-even-row);
-}
-
-/* para deixar uma linha de cada cor */
+/* alternância de cores */
 /* cor de linhas ímpares (even) */
 table tr:nth-child(even) {
     background: #06181C;
@@ -167,13 +198,7 @@ table tr:nth-child(odd) {
     background: none;
 }
 
-table td {
-    padding: 1.6rem 4rem;
-    text-align: left;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
+/* user */
 td.user {
     display: flex;
     align-items: center;
@@ -182,7 +207,11 @@ td.user {
     white-space: nowrap; /* não permite quebra de linha */
 }
 
-/* configuração da imagem */
+td.user:hover {
+    filter: brightness(1.1);
+}
+
+/* img user */
 td.user img {
     width: 6rem;
     height: 6rem;
@@ -207,34 +236,129 @@ td .remove {
     background: none;
     border: none;
 
-    color: red;
+    color: #F75A68;
 
     cursor: pointer;
 }
 
-.empty-message {
-    text-align: center;
+td .remove:hover {
+    filter: brightness(1.1);
+    color: red;
 }
 
-.empty-container {
+td button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--input-color);
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+}
+
+/* barra de rolagem */
+tbody::-webkit-scrollbar {
+    width: 8px; /* ajusta a largura para ser mais visível */
+    position: absolute;
+    right: 0; /* garante que ela fique sobre a tabela */
+}
+
+tbody::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+tbody::-webkit-scrollbar-thumb {
+    background: #4A808C;
+    border-radius: 6px; 
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+tbody:hover::-webkit-scrollbar-thumb {
+    opacity: 1;
+}
+
+/* imagem oculta - quando não tem favoritado */
+.empty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 4rem 0;
+    gap: 1rem;
 }
 
-.empty-container img {
-    width: 150px;
-    opacity: 0.5;
+.table-container {
+    position: relative;
+    border-radius: 1.2rem;
+    padding: 1rem;
 }
 
-.empty-container p {
-    font-size: 1.8rem;
+.empty .empty-content {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+}
+
+.empty-content p {
+    font-size: 4rem;
+    font-weight: bold;
     color: var(--input-color);
-    margin-top: 1rem;
+    white-space: nowrap;
 }
 
 .hide {
     display: none;
+    transition: display 0.5s ease;
+}
+
+tbody:empty {
+    background: rgba(255, 255, 255, 0.05);
+    height: 50vh;
+}
+
+/* responsividade */
+
+/* até 1024px */
+@media (max-width: 1024px) {
+    header {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .search {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search input {
+        width: 100%;
+    }
+
+    .search button {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 2rem;
+    }
+
+    /* exibir apenas colunas "Usuário" e "Ação" */
+    table th:nth-child(2),
+    table td:nth-child(2),
+    table th:nth-child(3),
+    table td:nth-child(3) {
+        display: none;
+    }
+
+    .empty-content p {
+        font-size: 4rem;
+        font-weight: bold;
+        color: var(--input-color);
+        white-space: pre-wrap;
+    }
 }

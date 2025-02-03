@@ -59,6 +59,10 @@ export class Favorites {
     }
 }
 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
 // classe que vai criar a visualização e eventos do HTML
 export class FavoritesView extends Favorites {
     constructor(root) {
@@ -96,60 +100,55 @@ export class FavoritesView extends Favorites {
             row.querySelector('.repositories').textContent = user.public_repos
             row.querySelector('.followers').textContent = user.followers
 
+            this.tbody.append(row) //append = funcionalidade que recebe um elemento
+
             row.querySelector('.remove').onclick = () => {
-                const isOk = confirm('Tem certeza de que deseja deletar essa linha?')
+                const isOk = confirm('Tem certeza de que deseja desfavoritar esta pessoa?')
                 if(isOk) {
                     this.delete(user)
                 }
             }
-
-            this.tbody.append(row) //append = funcionalidade que recebe um elemento
         })
+
+        // verifica se não há usuários cadastrados para alternar a visibilidade da imagem oculta (hide)
+        const emptyState = this.root.querySelector('.empty');
+        if (this.entries.length === 0) {
+            emptyState.classList.remove('hide'); // mostra a div
+        } else {
+            emptyState.classList.add('hide'); // esconde a div
+        }
     }
 
-    // estrutura de row utilizada para cada elemento que tiver nos dados
     createRow() {
-        const tr = document.createElement('tr')
+        const tr = document.createElement('tr');
 
-        // criando a 'tr' do html pelo js
         tr.innerHTML = `
+        <tr>
             <td class="user">
-                <img src="https://github.com/williammilanez.png" alt="Imagem de William">
-
-                <a href="https://github.com/williammilanez" target="_blank">
-                    <p>William Milanez</p>
-                    <span>williammilanez</span>
-                </a>
+            <img
+                src="https://github.com/williammilanez.png"
+                alt="Foto de Sarah Victoria"
+            />
+            <a href="https://github.com/williammilanez" target="_blank">
+                <p>Sarah Victoria</p>
+                <span>/williammilanez</span>
+            </a>
             </td>
 
-            <td class="repositories">
-                23
-            </td>
+            <td class="repositories">25</td>
 
-            <td class="followers">
-                0
-            </td>
+            <td class="followers">65</td>
 
-            <td>
-                <button class="remove">&times;</button>
-            </td>
+            <td><button class="remove">Remover</button></td>
+        </tr>
         `
 
-        return tr
+        return tr;
     }
 
-    // remove as linhas de usuários do html 'tr'
     removeAllTr() {
-        this.tbody.querySelectorAll('tr').forEach((tr) => {tr.remove()})
-    }
-
-    toggleEmptyMessage() {
-        const emptyMessageRow = this.root.querySelector('.empty-message');
-        
-        if (this.entries.length === 0) {
-            emptyMessageRow.classList.remove('hide');
-        } else {
-            emptyMessageRow.classList.add('hide');
-        }
+        this.tbody.querySelectorAll('tr').forEach(tr => {
+            tr.remove()
+        });
     }
 }

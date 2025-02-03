@@ -1,7 +1,7 @@
-# GitHub Favorites - GitHub Profile API Integration System  
+# GitFav - GitHub Profile API Integration System  
 
-## Sobre o Projeto 💻  
-O **GitHub Favorites** é uma aplicação interativa que permite aos usuários **cadastrar** e **descadastrar perfis de usuários do GitHub**, utilizando a **API oficial do GitHub**.
+## Sobre o Projeto 💻
+O **GitFav** é uma aplicação interativa que permite aos usuários **cadastrar** e **descadastrar perfis de usuários do GitHub**, utilizando a **API oficial do GitHub**.
 O projeto tem como objetivo explorar conceitos essenciais de desenvolvimento web, incluindo a manipulação de APIs e técnicas avançadas de JavaScript.
 
 <div align="center">
@@ -10,7 +10,7 @@ O projeto tem como objetivo explorar conceitos essenciais de desenvolvimento web
 
 ---
 
-## Funcionalidades do Projeto 📋  
+## Funcionalidades do Projeto 📋
 - Adicionar perfis de usuários do GitHub à lista de favoritos.  
 - Remover perfis da lista de favoritos.  
 - Persistência de dados utilizando o `localStorage`.  
@@ -18,7 +18,7 @@ O projeto tem como objetivo explorar conceitos essenciais de desenvolvimento web
 
 ---
 
-## Conceitos Abordados 📖  
+## Conceitos Abordados 📖
 
 ### HTML e CSS  
 - Utilização de tabelas para exibição de informações.  
@@ -37,19 +37,19 @@ O projeto tem como objetivo explorar conceitos essenciais de desenvolvimento web
 
 ---
 
-## Tecnologias Utilizadas ✅  
+## Tecnologias Utilizadas ✅
 - **HTML5**  
 - **CSS3**  
 - **JavaScript**  
 
 ---
 
-## Plataforma de Ensino 🚀  
+## Plataforma de Ensino 🚀
 Este projeto faz parte da trilha de aprendizado da **[Rocketseat](https://www.rocketseat.com.br)**.
 
 ---
 
-## Autor ✍️  
+## Autor ✍️
 Projeto replicado como parte dos ensinamentos da Rocketseat, com ajustes realizados por **William Milanez**.
 
 ---
